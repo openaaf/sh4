@@ -9,17 +9,22 @@ REPLIST="apps cdk driver flash"
 case "$1" in
 	clone)
 		for f in  $REPLIST ; do
+			if [ "$f" = "cdk" ]; then
+				gitpath=TitanNit
+			else
+				gitpath=Duckbox-Developers
+			fi
 			if [ -d "$f" ]; then
 				echo "$f already cloned"
 			else
 				if [ "$2" = "dev" ]; then
 					# dev
-					git clone git@github.com:Duckbox-Developers/$f $f
+					git clone git@github.com:$gitpath/$f $f
 				else
 					# usr
-					git clone git://github.com/Duckbox-Developers/$f $f
+					git clone git://github.com/$gitpath/$f $f
 				fi
-				echo "git clone" $f
+				echo "git clone" $f from $gitpath
 			fi
 		done
 		#sudo $DIR/prepare4cdk.sh
