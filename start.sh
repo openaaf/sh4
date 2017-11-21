@@ -8,20 +8,29 @@ REPLIST="apps cdk driver flash"
 
 case "$1" in
 	clone)
+		echo "git pull buildsystem-ddt"
 		git clone https://github.com/TitanNit/buildsystem-ddt buildsystem-ddt
 		cd $DIR/buildsystem-ddt
+		echo "git pull buildsystem-ddt/apps"
 		git clone https://github.com/Duckbox-Developers/apps apps
+		echo "git pull buildsystem-ddt/driver"
 		git clone https://github.com/Duckbox-Developers/driver driver
+		echo "git pull buildsystem-ddt/flash"
 		git clone https://github.com/Duckbox-Developers/flash flash
 		;;
 	pull)
 		cd $DIR/buildsystem-ddt
+		echo "git pull buildsystem-ddt"
 		git pull
 		cd $DIR/buildsystem-ddt/apps
+		echo "git pull buildsystem-ddt/apps"
 		git pull
 		cd $DIR/buildsystem-ddt/driver
+		echo "git pull buildsystem-ddt/driver"
 		git pull
 		cd $DIR/buildsystem-ddt/flash
+		echo "git pull buildsystem-ddt/flash"
+		git pull
 		;;
 esac
 
