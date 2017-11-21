@@ -10,13 +10,21 @@ case "$1" in
 	clone)
 		echo "git pull buildsystem-ddt"
 		git clone https://github.com/TitanNit/buildsystem-ddt buildsystem-ddt
+		ln -s buildsystem-ddt cdk
+
 		cd $DIR/buildsystem-ddt
+
 		echo "git pull buildsystem-ddt/apps"
 		git clone https://github.com/Duckbox-Developers/apps apps
+		ln -s buildsystem-ddt/apps ../apps
+
 		echo "git pull buildsystem-ddt/driver"
 		git clone https://github.com/Duckbox-Developers/driver driver
+		ln -s buildsystem-ddt/driver ../driver
+
 		echo "git pull buildsystem-ddt/flash"
 		git clone https://github.com/Duckbox-Developers/flash flash
+		ln -s buildsystem-ddt/flash ../flash
 		;;
 	pull)
 		cd $DIR/buildsystem-ddt
