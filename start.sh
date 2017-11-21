@@ -8,6 +8,27 @@ REPLIST="apps cdk driver flash"
 
 case "$1" in
 	clone)
+		git clone https://github.com/TitanNit/buildsystem-ddt buildsystem-ddt
+		cd $DIR/buildsystem-ddt
+		git clone https://github.com/Duckbox-Developers/apps apps
+		git clone https://github.com/Duckbox-Developers/driver driver
+		git clone https://github.com/Duckbox-Developers/flash flash
+		;;
+	pull)
+		cd $DIR/buildsystem-ddt
+		git pull
+		cd $DIR/buildsystem-ddt/apps
+		git pull
+		cd $DIR/buildsystem-ddt/driver
+		git pull
+		cd $DIR/buildsystem-ddt/flash
+		;;
+esac
+
+exit
+
+case "$1" in
+	clone)
 		for f in  $REPLIST ; do
 			if [ "$f" = "cdk" ]; then
 				gitpath=TitanNit
