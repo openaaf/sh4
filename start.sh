@@ -9,7 +9,7 @@ REPLIST="apps cdk driver flash"
 case "$1" in
 	clone)
 		echo "git pull buildsystem-ddt"
-		git clone https://github.com/TitanNit/buildsystem-ddt buildsystem-ddt
+		git clone https://github.com/openaaf/buildsystem-ddt buildsystem-ddt
 		echo "link cdk > buildsystem-ddt"
 		ln -s buildsystem-ddt cdk
 
