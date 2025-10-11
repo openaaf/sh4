@@ -26,7 +26,11 @@ case "$1" in
 		ln -s buildsystem-ddt/apps ../apps
 
 		echo "git pull buildsystem-ddt/driver"
-		git clone https://github.com/Duckbox-Developers/driver driver
+		if [ "$(whoami)" == "obi" ];then
+			git clone https://github.com/openaaf/driver driver
+		else
+			git clone https://github.com/Duckbox-Developers/driver driver
+		fi
 		echo "link driver > buildsystem-ddt/driver"
 		ln -s buildsystem-ddt/driver ../driver
 
