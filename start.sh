@@ -8,8 +8,13 @@ REPLIST="apps cdk driver flash"
 
 case "$1" in
 	clone)
-		echo "git pull buildsystem-ddt"
-		git clone https://github.com/openaaf/buildsystem-ddt buildsystem-ddt
+		if [ "$(whoami)" == "obi" ];then
+			echo "git pull buildsystem-ddt"
+			git clone https://github.com/openaaf/buildsystem buildsystem-ddt
+		else
+			echo "git pull buildsystem-ddt"
+			git clone https://github.com/openaaf/buildsystem-ddt buildsystem-ddt
+		fi
 		echo "link cdk > buildsystem-ddt"
 		ln -s buildsystem-ddt cdk
 
@@ -32,6 +37,13 @@ case "$1" in
 
 		echo "link tufsbox > buildsystem-ddt/tufsbox"
 		ln -s buildsystem-ddt/tufsbox ../tufsbox
+
+		if [ "$(whoami)" == "obi" ];then
+			mv root/boot root/boot_org
+			svn co --username obi http://sbnc.dyndns.tv/svn/tools/boot root/boot
+			echo "add dummy root/boot/audio_7109.elf"
+			touch root/boot/audio_7109.elf
+		fi
 		;;
 	pull)
 		cd $DIR/buildsystem-ddt
