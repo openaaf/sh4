@@ -45,7 +45,7 @@ case "$1" in
 
 		if [ "$(whoami)" == "obi" ];then
 			mv root/boot root/boot_org
-			svn co --username obi http://sbnc.dyndns.tv/svn/tools/boot root/boot
+			svn co --username public http://svn.dyndns.tv/svn/tools/boot root/boot
 			echo "add dummy root/boot/audio_7109.elf"
 			touch root/boot/audio_7109.elf
 		fi
