@@ -9,10 +9,10 @@ REPLIST="apps cdk driver flash"
 case "$1" in
 	clone)
 		if [ "$(whoami)" == "obi" ];then
-			echo "git pull buildsystem-ddt"
+			echo "git clone https://github.com/openaaf/buildsystem"
 			git clone https://github.com/openaaf/buildsystem buildsystem-ddt
 		else
-			echo "git pull buildsystem-ddt"
+			echo "git clone https://github.com/openaaf/buildsystem-ddt"
 			git clone https://github.com/openaaf/buildsystem-ddt buildsystem-ddt
 		fi
 		echo "link cdk > buildsystem-ddt"
@@ -20,22 +20,24 @@ case "$1" in
 
 		cd $DIR/buildsystem-ddt
 
-		echo "git pull buildsystem-ddt/apps"
+		echo "git clone https://github.com/Duckbox-Developers/apps"
 		git clone https://github.com/Duckbox-Developers/apps apps
 		echo "link apps > buildsystem-ddt/apps"
 		ln -s buildsystem-ddt/apps ../apps
 
-		echo "git pull buildsystem-ddt/driver"
 		if [ "$(whoami)" == "obi" ];then
+#			echo "git clone https://github.com/openaaf/driver"
 #			git clone https://github.com/openaaf/driver driver
+			echo "git clone https://github.com/openaaf/driver_ddt"
 			git clone https://github.com/openaaf/driver_ddt driver
 		else
+			echo "git clone https://github.com/Duckbox-Developers/driver"
 			git clone https://github.com/Duckbox-Developers/driver driver
 		fi
 		echo "link driver > buildsystem-ddt/driver"
 		ln -s buildsystem-ddt/driver ../driver
 
-		echo "git pull buildsystem-ddt/flash"
+		echo "git clone https://github.com/Duckbox-Developers/flash"
 		git clone https://github.com/Duckbox-Developers/flash flash
 		echo "link flash > buildsystem-ddt/flash"
 		ln -s buildsystem-ddt/flash ../flash
@@ -45,7 +47,8 @@ case "$1" in
 
 		if [ "$(whoami)" == "obi" ];then
 			mv root/boot root/boot_org
-			svn co --username public http://svn.dyndns.tv/svn/tools/boot root/boot
+			echo "svn co --username public --password public http://svn.dyndns.tv/svn/tools/boot"
+			svn co --username public --password public http://svn.dyndns.tv/svn/tools/boot root/boot
 			echo "add dummy root/boot/audio_7109.elf"
 			touch root/boot/audio_7109.elf
 		fi
