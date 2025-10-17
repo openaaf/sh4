@@ -26,10 +26,10 @@ case "$1" in
 		ln -s buildsystem-ddt/apps ../apps
 
 		if [ "$(whoami)" == "obi" ];then
-#			echo "git clone https://github.com/openaaf/driver"
-#			git clone https://github.com/openaaf/driver driver
-			echo "git clone https://github.com/openaaf/driver_ddt"
-			git clone https://github.com/openaaf/driver_ddt driver
+			echo "git clone https://github.com/openaaf/driver"
+			git clone https://github.com/openaaf/driver driver
+#			echo "git clone https://github.com/openaaf/driver_ddt"
+#			git clone https://github.com/openaaf/driver_ddt driver
 		else
 			echo "git clone https://github.com/Duckbox-Developers/driver"
 			git clone https://github.com/Duckbox-Developers/driver driver
