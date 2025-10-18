@@ -8,7 +8,7 @@ REPLIST="apps cdk driver flash"
 
 case "$1" in
 	clone)
-		if [ "$(whoami)" == "obi" ];then
+		if [ "$(whoami)" == "obiaus" ];then
 			echo "git clone https://github.com/openaaf/buildsystem"
 			git clone https://github.com/openaaf/buildsystem buildsystem-ddt
 		else
@@ -25,7 +25,7 @@ case "$1" in
 		echo "link apps > buildsystem-ddt/apps"
 		ln -s buildsystem-ddt/apps ../apps
 
-		if [ "$(whoami)" == "obi" ];then
+		if [ "$(whoami)" == "obiaus" ];then
 			echo "git clone https://github.com/openaaf/driver"
 			git clone https://github.com/openaaf/driver driver
 #			echo "git clone https://github.com/openaaf/driver_ddt"
