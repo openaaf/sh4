@@ -5,10 +5,12 @@ GITPULL="git pull"
 GITPUSH="git push origin master"
 GITSTATUS="git status"
 REPLIST="apps cdk driver flash"
+SH4GIT=$2
 
 case "$1" in
 	clone)
-		if [ "$(whoami)" == "obiaus" ];then
+#		if [ "$(whoami)" == "obiaus" ];then
+		if [ ! -z "$SH4GIT" ] && [ "$SH4GIT" == "2" ];then
 			echo "git clone https://github.com/openaaf/buildsystem"
 			git clone https://github.com/openaaf/buildsystem buildsystem-ddt
 		else
@@ -26,6 +28,7 @@ case "$1" in
 		ln -s buildsystem-ddt/apps ../apps
 
 		if [ "$(whoami)" == "obi" ];then
+#		if [ ! -z "$SH4GIT" ] && [ "$SH4GIT" == "2" ];then
 #			echo "git clone https://github.com/openaaf/driver"
 #			git clone https://github.com/openaaf/driver driver
 			echo "git clone https://github.com/openaaf/driver_ddt"
@@ -45,10 +48,11 @@ case "$1" in
 		echo "link tufsbox > buildsystem-ddt/tufsbox"
 		ln -s buildsystem-ddt/tufsbox ../tufsbox
 
-		if [ "$(whoami)" == "obi" ];then
+#		if [ "$(whoami)" == "obi" ];then
+		if [ ! -z "$SH4GIT" ] && [ "$SH4GIT" == "2" ];then
 			mv root/boot root/boot_org
-			echo "svn co --username public --password public http://svn.dyndns.tv/svn/tools/boot"
-			svn co --username public --password public http://svn.dyndns.tv/svn/tools/boot root/boot
+			echo "svn co --username buildbin --password buildbin http://svn.dyndns.tv/svn/tools/boot"
+			svn co --username buildbin --password buildbin http://svn.dyndns.tv/svn/tools/boot root/boot
 			echo "add dummy root/boot/audio_7109.elf"
 			touch root/boot/audio_7109.elf
 		fi
