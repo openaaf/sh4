@@ -8,6 +8,12 @@ GITPULL="git pull"
 GITPUSH="git push origin master"
 GITSTATUS="git status"
 REPLIST="apps cdk driver flash"
+GITCHECKOUT="git checkout -f"
+GITRESET="git reset --hard"
+GITCLEANALL="git clean -dfx -f"
+GITCLEAN="git clean -f -f"
+GITCLONE="git clone"
+
 SH4GIT=$2
 
 case "$1" in
@@ -78,20 +84,62 @@ case "$1" in
 		fi
 		;;
 	pull)
+	    $GITCHECKOUT
+		$GITRESET
+			$GITCLEAN
+			$GITCLEANALL
+
 		cd $DIR/buildsystem-ddt
+
+  	    echo "$FORMAT ==========================================="
+		echo "$FORMAT $GITCHECKOUT buildsystem-ddt"
+	    $GITCHECKOUT
+  	    echo "$FORMAT -------------------------------------------"
+		echo "$FORMAT $GITRESET buildsystem-ddt"
+		$GITRESET
+  	    echo "$FORMAT -------------------------------------------"
+		echo "$FORMAT $GITCLEAN buildsystem-ddt"
+		$GITCLEAN
 	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT git pull buildsystem-ddt"
 		git pull
 	    echo "$FORMAT -------------------------------------------"
 		cd $DIR/buildsystem-ddt/apps
+  	    echo "$FORMAT ==========================================="
+		echo "$FORMAT $GITCHECKOUT buildsystem-ddt/apps"
+	    $GITCHECKOUT
+  	    echo "$FORMAT -------------------------------------------"
+		echo "$FORMAT $GITRESET buildsystem-ddt/apps"
+		$GITRESET
+  	    echo "$FORMAT -------------------------------------------"
+		echo "$FORMAT $GITCLEAN buildsystem-ddt/apps"
+		$GITCLEAN
 	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT git pull buildsystem-ddt/apps"
 		git pull
 		cd $DIR/buildsystem-ddt/driver
+  	    echo "$FORMAT ==========================================="
+		echo "$FORMAT $GITCHECKOUT buildsystem-ddt/driver"
+	    $GITCHECKOUT
+  	    echo "$FORMAT -------------------------------------------"
+		echo "$FORMAT $GITRESET buildsystem-ddt/driver"
+		$GITRESET
+  	    echo "$FORMAT -------------------------------------------"
+		echo "$FORMAT $GITCLEAN buildsystem-ddt/driver"
+		$GITCLEAN
 	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT git pull buildsystem-ddt/driver"
 		git pull
 		cd $DIR/buildsystem-ddt/flash
+  	    echo "$FORMAT ==========================================="
+		echo "$FORMAT $GITCHECKOUT buildsystem-ddt/flash"
+	    $GITCHECKOUT
+  	    echo "$FORMAT -------------------------------------------"
+		echo "$FORMAT $GITRESET buildsystem-ddt/flash"
+		$GITRESET
+  	    echo "$FORMAT -------------------------------------------"
+		echo "$FORMAT $GITCLEAN buildsystem-ddt/flash"
+		$GITCLEAN
 	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT git pull buildsystem-ddt/flash"
 		git pull
