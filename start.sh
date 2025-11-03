@@ -84,11 +84,6 @@ case "$1" in
 		fi
 		;;
 	pull)
-	    $GITCHECKOUT
-		$GITRESET
-			$GITCLEAN
-			$GITCLEANALL
-
 		cd $DIR/buildsystem-ddt
 
   	    echo "$FORMAT ==========================================="
@@ -101,8 +96,8 @@ case "$1" in
 		echo "$FORMAT $GITCLEAN buildsystem-ddt"
 		$GITCLEAN
 	    echo "$FORMAT -------------------------------------------"
-		echo "$FORMAT git pull buildsystem-ddt"
-		git pull
+		echo "$FORMAT $GITPULL buildsystem-ddt"
+		$GITPULL
 	    echo "$FORMAT -------------------------------------------"
 		cd $DIR/buildsystem-ddt/apps
   	    echo "$FORMAT ==========================================="
@@ -115,8 +110,8 @@ case "$1" in
 		echo "$FORMAT $GITCLEAN buildsystem-ddt/apps"
 		$GITCLEAN
 	    echo "$FORMAT -------------------------------------------"
-		echo "$FORMAT git pull buildsystem-ddt/apps"
-		git pull
+		echo "$FORMAT $GITPULL buildsystem-ddt/apps"
+		$GITPULL
 		cd $DIR/buildsystem-ddt/driver
   	    echo "$FORMAT ==========================================="
 		echo "$FORMAT $GITCHECKOUT buildsystem-ddt/driver"
@@ -128,8 +123,8 @@ case "$1" in
 		echo "$FORMAT $GITCLEAN buildsystem-ddt/driver"
 		$GITCLEAN
 	    echo "$FORMAT -------------------------------------------"
-		echo "$FORMAT git pull buildsystem-ddt/driver"
-		git pull
+		echo "$FORMAT $GITPULL buildsystem-ddt/driver"
+		$GITPULL
 		cd $DIR/buildsystem-ddt/flash
   	    echo "$FORMAT ==========================================="
 		echo "$FORMAT $GITCHECKOUT buildsystem-ddt/flash"
@@ -141,8 +136,8 @@ case "$1" in
 		echo "$FORMAT $GITCLEAN buildsystem-ddt/flash"
 		$GITCLEAN
 	    echo "$FORMAT -------------------------------------------"
-		echo "$FORMAT git pull buildsystem-ddt/flash"
-		git pull
+		echo "$FORMAT $GITPULL buildsystem-ddt/flash"
+		$GITPULL
 		;;
 esac
 
