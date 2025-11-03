@@ -92,9 +92,9 @@ case "$1" in
   	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT $GITRESET buildsystem-ddt"
 		$GITRESET
-  	    echo "$FORMAT -------------------------------------------"
-		echo "$FORMAT $GITCLEAN buildsystem-ddt"
-		$GITCLEAN
+#  	    echo "$FORMAT -------------------------------------------"
+#		echo "$FORMAT $GITCLEAN buildsystem-ddt"
+#		$GITCLEAN
 	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT $GITPULL buildsystem-ddt"
 		$GITPULL
@@ -106,9 +106,9 @@ case "$1" in
   	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT $GITRESET buildsystem-ddt/apps"
 		$GITRESET
-  	    echo "$FORMAT -------------------------------------------"
-		echo "$FORMAT $GITCLEAN buildsystem-ddt/apps"
-		$GITCLEAN
+#  	    echo "$FORMAT -------------------------------------------"
+#		echo "$FORMAT $GITCLEAN buildsystem-ddt/apps"
+#		$GITCLEAN
 	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT $GITPULL buildsystem-ddt/apps"
 		$GITPULL
@@ -119,9 +119,9 @@ case "$1" in
   	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT $GITRESET buildsystem-ddt/driver"
 		$GITRESET
-  	    echo "$FORMAT -------------------------------------------"
-		echo "$FORMAT $GITCLEAN buildsystem-ddt/driver"
-		$GITCLEAN
+#  	    echo "$FORMAT -------------------------------------------"
+#		echo "$FORMAT $GITCLEAN buildsystem-ddt/driver"
+#		$GITCLEAN
 	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT $GITPULL buildsystem-ddt/driver"
 		$GITPULL
@@ -132,9 +132,9 @@ case "$1" in
   	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT $GITRESET buildsystem-ddt/flash"
 		$GITRESET
-  	    echo "$FORMAT -------------------------------------------"
-		echo "$FORMAT $GITCLEAN buildsystem-ddt/flash"
-		$GITCLEAN
+#  	    echo "$FORMAT -------------------------------------------"
+#		echo "$FORMAT $GITCLEAN buildsystem-ddt/flash"
+#		$GITCLEAN
 	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT $GITPULL buildsystem-ddt/flash"
 		$GITPULL
