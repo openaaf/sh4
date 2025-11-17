@@ -42,14 +42,16 @@ case "$1" in
 		echo "$FORMAT link apps > buildsystem-ddt/apps"
 		ln -s buildsystem-ddt/apps ../apps
 
-#		if [ "$(whoami)" == "obi" ];then
 		if [ ! -z "$SH4GIT" ] && [ "$SH4GIT" == "2" ];then
-		    echo "$FORMAT -------------------------------------------"
-			echo "$FORMAT git clone https://github.com/openaaf/driver"
-			git clone https://github.com/openaaf/driver driver
-#		    echo "$FORMAT -------------------------------------------"
-#			echo "$FORMAT git clone https://github.com/openaaf/driver_ddt"
-#			git clone https://github.com/openaaf/driver_ddt driver
+			if [ "$(whoami)" == "obi" ];then
+			    echo "$FORMAT -------------------------------------------"
+				echo "$FORMAT git clone https://github.com/openaaf/driver"
+				git clone https://github.com/openaaf/driver driver
+			else
+			    echo "$FORMAT -------------------------------------------"
+				echo "$FORMAT git clone https://github.com/openaaf/driver_ddt"
+				git clone https://github.com/openaaf/driver_ddt driver
+			fi
 		else
 		    echo "$FORMAT -------------------------------------------"
 			echo "$FORMAT git clone https://github.com/Duckbox-Developers/driver"
