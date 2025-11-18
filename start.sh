@@ -62,9 +62,15 @@ case "$1" in
 		echo "$FORMAT link driver > buildsystem-ddt/driver"
 		ln -s buildsystem-ddt/driver ../driver
 
-	    echo "$FORMAT -------------------------------------------"
-		echo "$FORMAT git clone https://github.com/Duckbox-Developers/flash"
-		git clone https://github.com/Duckbox-Developers/flash flash
+		if [ ! -z "$SH4GIT" ] && [ "$SH4GIT" == "2" ];then
+		    echo "$FORMAT -------------------------------------------"
+			echo "$FORMAT git clone https://github.com/openaaf/flash"
+			git clone https://github.com/openaaf/flash flash
+		else
+		    echo "$FORMAT -------------------------------------------"
+			echo "$FORMAT git clone https://github.com/Duckbox-Developers/flash"
+			git clone https://github.com/Duckbox-Developers/flash flash
+		fi
 
 	    echo "$FORMAT -------------------------------------------"
 		echo "$FORMAT link flash > buildsystem-ddt/flash"
