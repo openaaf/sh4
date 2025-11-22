@@ -43,7 +43,7 @@ case "$1" in
 		ln -s buildsystem-ddt/apps ../apps
 
 		if [ ! -z "$SH4GIT" ] && [ "$SH4GIT" == "2" ];then
-			if [ "$(whoami)" == "obi" ];then
+			if [ "$(whoami)" == "obi_aus" ];then
 			    echo "$FORMAT -------------------------------------------"
 				echo "$FORMAT git clone https://github.com/openaaf/driver"
 				git clone https://github.com/openaaf/driver driver
